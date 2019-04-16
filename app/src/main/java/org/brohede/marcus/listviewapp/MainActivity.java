@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private String[] mountainLocations = {"Alps","Alps","Alaska"};
     private int[] mountainHeights ={4478,4808,6190};
     // Create ArrayLists from the raw data above and use these lists when populating your ListView.
+    // skapaper en arraylist som heter listData
     private ArrayList<String> listData;
     private ArrayAdapter<String> adapter;
 
@@ -27,16 +28,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Ger listData värdet av arrayen mountainNames
         listData=new ArrayList<>(Arrays.asList(mountainNames));
         adapter=new ArrayAdapter<String>(this,R.layout.list_item_textview,R.id.list_item_textview, listData);
 
-
+        // kopplar arrayen med listView
         ListView my_listview=(ListView) findViewById(R.id.my_listview);
         my_listview.setAdapter(adapter);
 
         my_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                // skaper en variabel som hämtar data från arrayerna efter värdet på i
                 String temp = ""    + mountainNames[i] + " "
                                     + mountainLocations[i] + " "
                                     + mountainHeights[i];

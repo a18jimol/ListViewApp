@@ -37,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
         my_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(), "Hej", Toast.LENGTH_SHORT).show();
+                String temp = ""    + mountainNames[i] + " "
+                                    + mountainLocations[i] + " "
+                                    + mountainHeights[i];
+                Toast.makeText(getApplicationContext(), temp, Toast.LENGTH_SHORT).show();
             }
         });
 
